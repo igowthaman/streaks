@@ -1,8 +1,9 @@
+import { useEffect } from 'react';
 import { createBrowserHistory } from 'history';
+import useRouteStore from './stores/routeStore';
 import NavBar from './components/navBar';
 import TopBar from './components/topBar';
-import { useEffect } from 'react';
-import useRouteStore from './stores/routeStore';
+import HomePage from './pages/homePage';
 
 function App() {
   const history = createBrowserHistory();
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="bg-darkBlue w-100vw h-100vh relative">
       <TopBar />
+      <HomePage />
       <NavBar route={route} history={history} />
     </div>
   );

@@ -10,7 +10,7 @@ interface NavBarProps {
 const NavBar: React.FC<NavBarProps> = ({ route, history }) => {
   console.log(route); 
   return (
-    <div className="absolute bottom-0 bg-navBlue flex  w-full h-[64px] items-center justify-around">
+    <div className="absolute bottom-0 bg-navBlue flex  w-full h-[48px] items-center justify-around">
       <div
         className={cn('i-material-symbols:home-app-logo text-2xl', {
           'text-primaryBlue': ['', '/'].includes(route),

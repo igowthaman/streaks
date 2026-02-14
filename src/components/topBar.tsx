@@ -13,7 +13,7 @@ const TopBar: React.FC = () => {
         <img src={logo} alt="Streaks logo" className="inline-block mr-2" />
         Streaks
       </div>
-      <div className='text-secondaryWhite text-sm pt-[4px]'>{date}</div>
+      <div className='text-secondaryWhite text-sm pt-[4px] font-semibold'>{date}</div>
     </div>
   );
 };
