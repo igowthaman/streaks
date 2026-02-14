@@ -1,4 +1,8 @@
+import presetWebFonts from '@unocss/preset-web-fonts';
+import presetWind3 from '@unocss/preset-wind3';
+import presetIcons from '@unocss/preset-icons/browser';
 import { defineConfig } from 'unocss';
+import { IconifyJSON } from '@iconify-json/material-symbols';
 
 export default defineConfig({
   theme: {
@@ -10,28 +14,43 @@ export default defineConfig({
       primaryBlue: '#0D59F2',
       hoverBlue: '#1E293B',
       borderBlue: '#334155',
+      navBlue: '#0F172A',
       primaryGreen: '#10B981',
       white: '#FFFFFF',
       black: '#000000',
     } as Record<string, string>,
   },
   rules: [
-    [/^text-(.*)$/, ([, c], { theme }) => ({ color: theme.colors[c] || c })],
+    [
+      /^text-(.*)$/,
+      ([, c], { theme }) => {
+        if (theme.colors[c]) return { color: theme.colors[c] };
+      },
+    ],
     [
       /^bg-(.*)$/,
-      ([, c], { theme }) => ({ 'background-color': theme.colors[c] || c }),
+      ([, c], { theme }) => {
+        if (theme.colors[c]) return { 'background-color': theme.colors[c] };
+      },
     ],
-    [/^m-(.*)$/, ([, c]) => ({ margin: c })],
-    [/^p-(.*)$/, ([, c]) => ({ padding: c })],
-    [/^w-(.*)$/, ([, c]) => ({ width: c })],
-    [/^h-(.*)$/, ([, c]) => ({ height: c })],
-    [/^rounded-(.*)$/, ([, c]) => ({ 'border-radius': c })],
     [
       /^border-(.*)$/,
       ([, c], { theme }) => {
-        const [color, width = '1px'] = c.split('-');
-        return { 'border-color': theme.colors[color] || color, 'border-width': width };
+        if (theme.colors[c]) return { 'border-color': theme.colors[c] };
       },
     ],
+  ],
+  presets: [
+    presetWind3(),
+    presetWebFonts({
+      fonts: {
+        sans: 'Quicksand',
+      },
+    }),
+    presetIcons({
+        collections: {
+            'material-symbols': () => import('@iconify-json/material-symbols/icons.json').then(i => i.default as IconifyJSON),
+        }
+    }),
   ],
 });
