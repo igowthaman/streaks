@@ -53,7 +53,7 @@ const Calendar: React.FC<CalendarProps> = ({
     >
       <div
         ref={ref}
-        className="border border-0 rounded-2xl bg-navBlue p-6 w-[calc(100vw-32px)] max-w-[400px] shadow-lg"
+        className="border border-0 rounded-2xl bg-navBlue p-6 w-[calc(100vw-32px)] max-w-[calc(90%-32px)] shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Month navigation */}
@@ -101,8 +101,10 @@ const Calendar: React.FC<CalendarProps> = ({
                   'w-full aspect-square rounded-full text-sm font-bold flex items-center justify-center transition-colors border border-0 bg-cardBlue',
                   {
                     'bg-primaryBlue text-white': isSelected,
-                    'border border-solid border-primaryBlue text-primaryBlue': isToday,
-                    'text-primaryWhite hover:bg-hoverBlue': isCurrentMonth && !isSelected && !isToday,
+                    'border border-solid border-primaryBlue text-primaryBlue':
+                      isToday,
+                    'text-primaryWhite hover:bg-hoverBlue':
+                      isCurrentMonth && !isSelected && !isToday,
                     'text-secondaryWhite opacity-40': !isCurrentMonth,
                   },
                 )}
