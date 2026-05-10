@@ -11,6 +11,7 @@ export default defineConfig({
       primaryWhite: '#F1F5F9',
       secondaryWhite: '#94A3B8',
       cardBlue: '#1e293b7e',
+      primaryBlue10: 'rgba(13, 89, 242, 0.09)',
       primaryBlue: '#0D59F2',
       primaryOrange: '#F97316',
       hoverBlue: '#1E293B',

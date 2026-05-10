@@ -8,12 +8,20 @@ const TopBar: React.FC = () => {
     day: 'numeric',
   });
   return (
-    <div className="p-[16px]">
-      <div className="flex items-center justify-start text-primaryWhite font-extrabold text-xl">
-        <img src={logo} alt="Streaks logo" className="inline-block mr-2" />
-        Streaks
+    <div className="flex justify-between items-center min-w-[calc(100vw-32px)] p-[16px]">
+      <div>
+        <div className="flex items-center justify-start text-primaryWhite font-extrabold text-2xl">
+          <img src={logo} alt="Streaks logo" className="inline-block mr-2" />
+          Streaks
+        </div>
+        <div className="text-secondaryWhite text-base pt-[4px] font-semibold ml-[36px]">
+          {date}
+        </div>
       </div>
-      <div className='text-secondaryWhite text-sm pt-[4px] font-semibold'>{date}</div>
+      <div className="flex items-center justify-between border-solid border-2 border-borderBlue border rounded-full px-[16px] py-[8px] bg-cardBlue text-2xl">
+        <div className="text-primaryOrange font-extrabold">10</div>
+        <div className="i-material-symbols:local-fire-department-rounded text-primaryOrange text-3xl" />
+      </div>
     </div>
   );
 };
