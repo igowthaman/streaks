@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { VitePWA } from 'vite-plugin-pwa/dist/index.cjs';
+import { VitePWA } from 'vite-plugin-pwa';
 import UnoCSS from 'unocss/vite';
 
 const manifestForPlugIn = {
   registerType: 'prompt' as const,
-  includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
+  includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
   manifest: {
     name: 'Streaks',
     short_name: 'streaks',
@@ -15,25 +15,19 @@ const manifestForPlugIn = {
         src: '/android-chrome-192x192.png',
         sizes: '192x192',
         type: 'image/png',
-        purpose: 'favicon',
+        purpose: 'any',
       },
       {
         src: '/android-chrome-512x512.png',
         sizes: '512x512',
         type: 'image/png',
-        purpose: 'favicon',
+        purpose: 'any',
       },
       {
-        src: '/apple-touch-icon.png',
-        sizes: '180x180',
-        type: 'image/png',
-        purpose: 'apple touch icon',
-      },
-      {
-        src: '/maskable_icon.png',
+        src: '/android-chrome-512x512.png',
         sizes: '512x512',
         type: 'image/png',
-        purpose: 'any maskable',
+        purpose: 'maskable',
       },
     ],
     theme_color: '#0D59F2',
@@ -42,6 +36,10 @@ const manifestForPlugIn = {
     scope: '/',
     start_url: '/',
     orientation: 'portrait' as const,
+  },
+  workbox: {
+    // defining cached files formats
+    globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest}'],
   },
 };
 
