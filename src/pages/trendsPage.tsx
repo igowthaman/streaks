@@ -67,6 +67,7 @@ const TrendsPage: React.FC = () => {
             selectedDate={date}
             onSelectDate={setDate}
             onClose={() => setShowCalendar(false)}
+            maxDate={moment()}
           />
         )}
         <div
